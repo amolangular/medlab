@@ -36,3 +36,45 @@ Requirement:
 if pincode not available then dont call the top-deals
 if pincode available then call
 -------
+
+
+
+Login : 
+  
+  one unique toke will get assign to this user.
+  ID card -> token 
+
+SignUp :
+
+
+login -> backend server -> database
+         Unique token  <-
+
+
+
+Login 
+  1.Mobile No
+  2.Password
+
+if mobile no does not exist on our system then we need to error message
+
+SignUp
+ 1.UserName
+ 2.Mobile No ->
+   OTP otp
+   if(otp == otpenter){
+     mob is verified
+   }
+   otp is valid for 60
+
+ 3.Password
+SignUp
+
+
+Get Otp 
+  otp generated will be send to end user.
+  generated otp 
+
+VerifyOtp  
+  generated Otp == enetered Otp
+  

@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { ViewProductDetailsComponent } from './components/view-product-details/view-product-details.component';
 import { ViewProductDetailsCategoryComponent } from './components/view-product-details-category/view-product-details-category.component';
+import { LoginModule } from './login/login.module';
 // import { ViewProductDetailsComponent } from './vie./components/view-product-details-category/view-product-details-category.component
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ViewProductDetailsCategoryComponent } from './components/view-product-d
     BrowserAnimationsModule,
     CarouselModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

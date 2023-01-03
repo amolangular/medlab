@@ -4,6 +4,26 @@
   </div>
   <div class="col-md-6 text-end">
      <a href="" class="navbar-brand">About Us</a>
-     <a href="" class="navbar-brand ms-4">Login</a>
+     <a href="" class="navbar-brand ms-4" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
   </div>
 </div>
+
+
+
+
+
+ <!-- Modal -->
+ <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+       </div>
+       <div class="modal-body">
+         <app-sign-up></app-sign-up>
+         <!-- <app-login></app-login> -->
+       </div>
+     </div>
+   </div>
+ </div>
