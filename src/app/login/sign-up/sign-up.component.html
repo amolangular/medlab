@@ -2,6 +2,9 @@
     <div class="alert alert-danger" role="alert" *ngIf="!isVerifyOtp && signUpForm.valid">
          Mobile Verification is Mandatory
       </div>
+      <div class="alert alert-success" role="alert" *ngIf="isSignUpSuccess">
+        Register Successfully , Please proceed with the login
+      </div>  
     <div class="row">
         <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
             <div class="mb-3">
@@ -21,7 +24,7 @@
                     <input type="text" class="form-control" placeholder="" #otp>
                     <span class="input-group-text bg-body" id="basic-addon2"><a class="p-1 noDeocoration" (click)="verifyOtp(otp.value)">Verify Otp</a></span>
                 </div>
-                <div>Otp is Valid for {{otpTimer}}</div>
+                <div>Otp is Valid for {{otpTimer}} &nbsp;s</div>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Password</label>
@@ -31,7 +34,10 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
-            <button type="submit" class="btn btn-primary" [disabled]="!(signUpForm.valid && isVerifyOtp)">Submit</button>
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary" type="submit" [disabled]="!(signUpForm.valid && isVerifyOtp && !isSignUpSuccess)">Sign Up</button>
+                <!-- <button class="btn btn-primary" type="button">Button</button> -->
+              </div>
         </form>
     </div>
 </div>

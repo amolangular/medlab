@@ -4,12 +4,10 @@
   </div>
   <div class="col-md-6 text-end">
      <a href="" class="navbar-brand">About Us</a>
-     <a href="" class="navbar-brand ms-4" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+     <a  class="navbar-brand ms-4" *ngIf="!isLoginSuccess" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+     <a  class="navbar-brand ms-4" *ngIf="isLoginSuccess">{{loggedUserDetails?.userName}}</a>
   </div>
 </div>
-
-
-
 
 
  <!-- Modal -->
@@ -17,13 +15,17 @@
    <div class="modal-dialog">
      <div class="modal-content">
        <div class="modal-header">
-         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         <h5 class="modal-title" id="exampleModalLabel">{{actionName}}&nbsp;Form</h5>
+         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #closeBtn></button>
        </div>
        <div class="modal-body">
-         <app-sign-up></app-sign-up>
-         <!-- <app-login></app-login> -->
+         <app-sign-up *ngIf="actionName == 'SignUp'"></app-sign-up>
+         <app-login *ngIf="actionName == 'SignIn'" (signInSuccess)="handleLoginSuccess($event)"></app-login>
        </div>
+       <div class="d-grid gap-2" >
+        <button class="btn btn-primary m-4" type="button" *ngIf="actionName=='SignIn'" (click)="changeAction('SignUp')">Sign Up</button>
+        <button class="btn btn-primary m-4" type="button" *ngIf="actionName=='SignUp'" (click)="changeAction('SignIn')">Login</button>
+      </div>
      </div>
    </div>
  </div>
