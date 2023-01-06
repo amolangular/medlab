@@ -88,3 +88,44 @@ we need to
 token => 
 id 
 
+
+token -> token 
+expiry time -> 30 mins
+
+
+1.token is received
+2.we need to pass this token in secured apis
+  as part of request headers
+
+3.
+
+///// api call 
+patientId : 6 ID
+ add to [
+  product 1 , product 2 , product 3
+ ]
+
+ // local stoarge
+
+ localstorage
+     prodcts:1
+
+
+new product ->     
+
+orderObj => 
+{
+  name:
+  mobNo:
+  emailId:
+  totalAmount:
+  totalDiscount:
+  totalItems
+  address:
+  isPayment:false
+  items:[{},{}]
+}
+
+50 * 3 = 150  
+40 
+

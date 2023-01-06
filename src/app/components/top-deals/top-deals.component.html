@@ -8,13 +8,13 @@
         <owl-carousel-o [options]="customOptions">
             <ng-container *ngFor="let deal of topDeals">
                 <ng-template carouselSlide [id]="deal.id">
-                    <div class="card card-block" style="width: 280px;" [routerLink]="['/view-product-details',deal.drugCode]">
-                        <img [src]="deal.productImageSlug[0]" class="card-img-top m-2 p-4" alt="..." height="220">
+                    <div class="card card-block" style="width: 280px;">
+                        <img [src]="deal.productImageSlug[0]" [routerLink]="['/view-product-details',deal.drugCode]" class="card-img-top m-2 p-4" alt="..." height="220">
                         <div class="card-body">
                             <h5 class="card-title card-description" [title]="deal.description">{{deal.description}}</h5>
                             <p class="card-text text-muted">{{deal.type}}</p>
                             <span class="card-text text-muted">MRP</span>
-                            <p style="font-size: 20px;">₹ <span class="ms-0">{{deal.discountPrice}}</span> &nbsp; <span style="margin-left: 90px;" class="border border-primary rounded"><a class="text-decoration-none px-3 fs-6">ADD</a>
+                            <p style="font-size: 20px;">₹ <span class="ms-0">{{deal.discountPrice}}</span> &nbsp; <span style="margin-left: 90px;" class="border border-primary rounded"><a class="text-decoration-none px-3 fs-6" (click)="addToCart(deal)">ADD</a>
                             </span></p>
                         </div>
                     </div>

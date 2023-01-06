@@ -3,9 +3,10 @@
      <a href="" class="navbar-brand">Medlab</a>
   </div>
   <div class="col-md-6 text-end">
+    <a class="navbar-brand cursor" (click)="redirectToCart()"><i class="bi bi-cart2 me-2 fs-4"></i> <span class="cartCount">{{cardCount | async}}</span>Cart</a>
+     <a class="navbar-brand ms-4" *ngIf="!isLoginSuccess" data-bs-toggle="modal" data-bs-target="#loginModal" #loginBtn>Login</a>
+     <a class="navbar-brand ms-4" *ngIf="isLoginSuccess">{{loggedUserDetails?.userName}}</a>&nbsp;
      <a href="" class="navbar-brand">About Us</a>
-     <a  class="navbar-brand ms-4" *ngIf="!isLoginSuccess" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
-     <a  class="navbar-brand ms-4" *ngIf="isLoginSuccess">{{loggedUserDetails?.userName}}</a>
   </div>
 </div>
 

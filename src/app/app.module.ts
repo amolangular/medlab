@@ -16,6 +16,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { ViewProductDetailsComponent } from './components/view-product-details/view-product-details.component';
 import { ViewProductDetailsCategoryComponent } from './components/view-product-details-category/view-product-details-category.component';
 import { LoginModule } from './login/login.module';
+import { CartModule } from './cart/cart.module';
 // import { ViewProductDetailsComponent } from './vie./components/view-product-details-category/view-product-details-category.component
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LoginModule } from './login/login.module';
     CarouselModule,
     FormsModule,
     HttpClientModule,
-    LoginModule
+    LoginModule,
+    CartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
