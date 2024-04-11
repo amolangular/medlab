@@ -11,6 +11,7 @@ import { TopDealsComponent } from './components/top-deals/top-deals.component';
 import { HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ProductsByCategoryComponent } from './components/products-by-category/products-by-category.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     HomeComponent,
     MedicinesHomeComponent,
     TopDealsComponent,
+    ProductsByCategoryComponent,
   ],
   imports: [
     BrowserModule,
