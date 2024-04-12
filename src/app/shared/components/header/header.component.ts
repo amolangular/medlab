@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  action:string="Login";
+
+  triggerAction(actionName:string){
+    this.action = actionName;
+  }
 }

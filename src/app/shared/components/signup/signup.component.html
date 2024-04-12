@@ -1,0 +1,35 @@
+<div class="row p-2">
+
+    <p class="text-success fs-6">User Does Not Exist Please do signUp</p>
+
+    <form>
+        <div class="mb-3">
+            <label for="id1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="id1">
+        </div>
+        <div class="mb-3">
+            <label for="id3" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="id3">
+        </div>
+        <label for="id3" class="form-label">Mobile No</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="" aria-label="Recipient's username"
+                aria-describedby="basic-addon2">
+            <span class="input-group-text cursor bg-primary text-light" id="basic-addon2" (click)="getOtp()">Get OTP</span>
+        </div>
+        <label for="id3" *ngIf="displayOtpField" class="form-label">Enter OTP</label>
+        <div class="input-group mb-3" *ngIf="displayOtpField">
+            <input type="text" id="basic-addon3" class="form-control" placeholder="">
+            <span class="input-group-text cursor bg-primary text-light" id="basic-addon3" (click)="verifyOTP()">Verify OTP</span>
+        </div>
+        <p class="fs-6">OTP is valid for <strong>{{otpTimer}}&nbsp;S</strong></p>
+      
+        <div class="mb-3">
+            <label for="id4" class="form-label">Password</label>
+            <input type="password" class="form-control" id="id4">
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">SignUp</button>
+        </div>
+    </form>
+</div>
