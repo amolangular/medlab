@@ -1,5 +1,5 @@
 import { HttpParams } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HttpService } from 'src/app/core/services/http.service';
 
@@ -10,7 +10,10 @@ import { HttpService } from 'src/app/core/services/http.service';
 })
 export class LoginComponent {
   loginForm!:FormGroup;
-  isNewUser:boolean = false
+  isNewUser:boolean = false;
+
+  @Output()
+  emitAction:EventEmitter<boolean> = new EventEmitter();
   constructor(private fb:FormBuilder,private http:HttpService){
 
   }
@@ -30,12 +33,16 @@ export class LoginComponent {
   login(){
     const httpParams: HttpParams = new HttpParams()
                                    .set('email',this.loginForm.get('email')?.value)
-                                   .set('password',this.loginForm.get('email')?.value)
-
+                                   .set('password',this.loginForm.get('password')?.value)
     this.http.getDataFromServer('users',httpParams).subscribe({
       next:(response:any)=>{
         if(response && response.length > 0){
-          this.isNewUser = false
+          this.isNewUser = false;
+          const userObj = response[0];
+          const token = "BGghjhjtiytytu"
+          localStorage.setItem("userDetls",JSON.stringify(userObj));
+          localStorage.setItem("token",token);
+          this.emitAction.emit(true);
         }else {
             this.isNewUser = true;
         }

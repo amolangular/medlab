@@ -15,7 +15,7 @@
                             <p class="card-text text-muted">{{deal.type}}</p>
                             <p><span class="text-muted">MRP&nbsp;</span><span
                                     class="text-decoration-line-through">₹{{deal.discountPrice}}</span>&nbsp;<span>₹{{deal.actualPrice}}</span>
-                                <button type="button" class="btn btn-outline-primary btn-sm ms-3 px-2">ADD</button>
+                                <button type="button" class="btn btn-outline-primary btn-sm ms-3 px-2" (click)="addToCart(deal)">ADD</button>
                             </p>
                         </div>
                     </div>

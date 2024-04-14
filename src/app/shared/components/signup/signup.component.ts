@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { interval } from 'rxjs';
+import { HttpService } from 'src/app/core/services/http.service';
 
 @Component({
   selector: 'app-signup',
@@ -8,10 +9,16 @@ import { interval } from 'rxjs';
 })
 export class SignupComponent {
 
+  userObj:User = new User();
+  otpEntered!:number;
   displayOtpField: boolean = false;
   otpGenerated!: number;
   otpTimer!: number;
-  constructor() {
+
+  isOtpVerified:boolean = false;
+  isOtpInvalid:boolean = false;
+  sub:any;
+  constructor(private http:HttpService) {
 
   }
 
@@ -23,11 +30,11 @@ export class SignupComponent {
     this.displayOtpField = true;
     this.otpGenerated = this.generateRandomNumber();
     console.log("OTP: ", this.otpGenerated);
-    var subs = interval(1000).subscribe({
+    this.sub = interval(1000).subscribe({
       next: (response) => {
         this.otpTimer = 60 - response;
         if (this.otpTimer == 0) {
-          subs.unsubscribe();
+          this.sub.unsubscribe();
         }
       }
     })
@@ -41,8 +48,38 @@ export class SignupComponent {
   }
 
   verifyOTP() {
-    this.displayOtpField = false;
-    
+     if(this.otpGenerated == this.otpEntered){
+      this.displayOtpField = false;
+      this.isOtpVerified = true;
+      this.isOtpInvalid = false;
+      this.userObj.isOtpVerified = true;
+      this.sub.unsubscribe();
+     }else {
+      this.displayOtpField = true;
+      this.isOtpVerified = false;
+      this.isOtpInvalid = true;
+     } 
   }
 
+  signUp(){
+    console.log("submit clicked");
+    if(this.isOtpVerified){
+      this.http.postDataToServer('users',this.userObj).subscribe({
+        next:(response:any)=>{
+          if(response){
+
+          }
+        }
+      })
+    }
+  }
+
+}
+
+class User {
+  name!:string;
+  email!:string;
+  mobileNo!:string;
+  password!:string;
+  isOtpVerified!:boolean
 }
