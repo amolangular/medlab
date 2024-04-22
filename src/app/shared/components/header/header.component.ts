@@ -25,6 +25,16 @@ count:number = 0;
         this.count=response;
        }
     })
+
+    this.getCartItems();
+  }
+
+
+  getCartItems() {
+   var cartItems = this.cartSvc.getCartItemsFromLocalStorage();
+     if(cartItems != null){
+      this.count = cartItems.length ;
+     }
   }
 
   hideLoginBtn:boolean = false;
