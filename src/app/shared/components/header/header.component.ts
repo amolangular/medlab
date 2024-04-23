@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/cart/cart.service';
 import { AuthenticationService } from 'src/app/core/services/authentication.service';
 
@@ -14,7 +15,7 @@ count:number = 0;
 
 
 @ViewChild('closeBtn')closeBtn!:ElementRef
-  constructor(private auth:AuthenticationService,private cartSvc:CartService){
+  constructor(private auth:AuthenticationService,private cartSvc:CartService,private router:Router){
     
   }
 
@@ -56,5 +57,10 @@ count:number = 0;
     localStorage.removeItem("userDetls");
     localStorage.removeItem("token");
     this.hideLoginBtn = false;
+  }
+
+  navigateTo(){
+    this.router.navigate(['/cart']);
+    console.log("Cart");
   }
 }

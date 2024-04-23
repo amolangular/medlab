@@ -3,7 +3,7 @@
         <a class="text-decoration-none cursor">Medlab</a>
     </div>
     <div class="col-md-6 text-end p-2 fs-6 fw-bold">
-        <a class="text-decoration-none mx-2 cursor"><i class="bi bi-cart fs-4 fw-bold"></i><span class="cart border px-1 rounded-circle">{{count}}</span></a>
+        <a class="text-decoration-none mx-2 cursor" (click)="navigateTo()"><i class="bi bi-cart fs-4 fw-bold"></i><span class="cart border px-1 rounded-circle">{{count}}</span></a>
         <ng-container *ngIf="hideLoginBtn">
             <a class="text-decoration-none mx-2 cursor text-dark dropdown" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{userDetls.name}}<i class="bi bi-caret-down"></i></a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
